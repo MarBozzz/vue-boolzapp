@@ -102,14 +102,38 @@
           </div>
         </section>
 
-        <section class="body-conversation d-flex dir-column justify-between">
-            <div class="current-chat">
-              <h1>{{message}}</h1>
+        <section class="body-conversation d-flex dir-column">
+
+            <div class="current-chat d-flex dir-column">
+              
+              <div class="message-row d-flex justify-end">
+                <div class="message-box sent">
+                  <span>{{messageExample}}</span>
+                  <span class="delivery-time">12:00</span>
+                </div>
+              </div>
+
+              <div class="message-row d-flex justify-end">
+                <div class="message-box sent">
+                  <span>{{messageExampleTwo}}</span>
+                  <span class="delivery-time">12:00</span>
+                </div>
+              </div>
+
+              <div class="message-row d-flex justify-start">
+                <div class="message-box received">
+                  <span>{{messageExampleThree}}</span>
+                  <span class="delivery-time">12:00</span>
+                </div>
+              </div>
+
             </div>
 
             <div class="input-field d-flex justify-evenly align-center">
               <i class="fa-regular fa-face-smile"></i>
-              <input class="write-a-message" type="text" placeholder="Scrivi un messaggio">
+              <input 
+                class="write-a-message"
+                v-model="message" type="text" placeholder="Scrivi un messaggio">
               <i class="fa-solid fa-microphone"></i>
             </div>
         </section>

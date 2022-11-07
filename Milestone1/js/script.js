@@ -3,6 +3,10 @@ const { createApp } = Vue;
 createApp ({
   data(){
     return {
+      messageExample : 'Hai portato a spasso il cane?',
+      messageExampleTwo : 'Ricordati di stendere i panni',
+      messageExampleThree : 'Tutto fatto!',
+      message : '',
       startPath : 'img/avatar',
       endPath : '.jpg',
       contacts : [

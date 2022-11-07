@@ -68,8 +68,16 @@ img {
   flex-direction: column;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-center {
   justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-between {
@@ -78,6 +86,10 @@ img {
 
 .justify-evenly {
   justify-content: space-evenly;
+}
+
+.align-start {
+  align-items: flex-start;
 }
 
 .align-center {
@@ -213,6 +225,36 @@ img {
   height: calc(100% - 70px);
   background-image: url("../img/mine.jpg");
 }
+
+
+.message-box {
+  padding: 1rem;
+  margin: .7rem 5rem;
+  border-radius: 10px;
+  height: 3.5rem;
+  position: relative;
+}
+
+.message-box .delivery-time {
+  font-size: .5rem;
+  position: absolute;
+  bottom: .3rem;
+  right: .3rem;
+}
+
+.message-row .sent {
+  background-color: #D5F9BA;
+  align-items: flex-end;
+  text-align: end;
+}
+
+.message-row .received {
+  background-color: #FFFFFF;
+  align-items: flex-start;
+  text-align: start;
+}
+
+
 
 .input-field {
   height: 70px;
