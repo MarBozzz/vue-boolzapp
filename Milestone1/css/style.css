@@ -7,3 +7,98 @@
 body {
   font-family: 'Lato', sans-serif;
 }
+
+main {
+  background-color: #D8DBD5;
+  position: relative;
+  height: 100vh;
+}
+
+/* UTILITIES */
+.d-flex {
+  display: flex;
+}
+
+.dir-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+ align-items: flex-end;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.green-band {
+  height: 15%;
+  background-color: #009688;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.container {
+  width: 80%;
+  height: 95%;
+  background-color: aqua;
+  z-index: 999;
+}
+
+.left-column {
+  width: 35%;
+  height: 100%;
+  background-color: yellow;
+}
+.right-column {
+  width: 65%;
+  height: 100%;
+}
+
+.user {
+  height: 200px;
+  background-color: #EAEAEA;
+}
+
+.user-menu {
+  height: 35%;
+}
+.alert {
+  height: 40%;
+  background-color: #8EDAFC;
+}
+.finder {
+  height: 25%;
+  background-color: #FFFFFF;
+}
+.active-conversation {
+  height: 70px;
+  background-color: #EAEAEA;
+}
+
+.body-conversation {
+  height: calc(100% - 70px);
+}
+
+.current-chat {
+  height: calc(100% - 70px);
+  background-image: url("../img/mine.jpg");
+}
+
+.input-field {
+  height: 70px;
+  background-color: #F3EEEA;
+}
