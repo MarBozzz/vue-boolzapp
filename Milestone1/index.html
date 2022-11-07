@@ -25,7 +25,7 @@
 
   <main class="d-flex justify-center align-center">
     <div class="green-band w-100"></div>
-    <div class="container d-flex">
+    <div id="app" class="container d-flex">
       <div class="left-column">
 
         <section class="user w-100">
@@ -63,11 +63,15 @@
 
         <section class="contacts">
           <ul>
-            <li class="contact d-flex justify-between">
+            <li 
+              v-for="(contact, index) in contacts"
+              class="contact d-flex justify-between">
               <div class="contact-left-part d-flex align-center">
-                <img src="img/avatar_1.jpg" alt="Avatar1">
+                <img 
+                :src="startPath+contact.avatar+endPath" 
+                :alt="'Avatar'+' '+contact.name">
                 <div class="contact-details d-flex dir-column">
-                  <span class="contact-name">Michele</span>
+                  <span class="contact-name">{{contact.name}}</span>
                   <span>Ultimo messaggio inviato</span>                
                 </div>
               </div>
@@ -100,7 +104,7 @@
 
         <section class="body-conversation d-flex dir-column justify-between">
             <div class="current-chat">
-              
+              <h1>{{message}}</h1>
             </div>
 
             <div class="input-field d-flex justify-evenly align-center">
