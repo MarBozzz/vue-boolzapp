@@ -15,6 +15,10 @@ main {
 }
 
 /* UTILITIES */
+img {
+  max-width: 100%;
+}
+
 .d-flex {
   display: flex;
 }
@@ -43,6 +47,8 @@ main {
   width: 100%;
 }
 
+
+
 .green-band {
   height: 15%;
   background-color: #009688;
@@ -54,15 +60,15 @@ main {
 .container {
   width: 80%;
   height: 95%;
-  background-color: aqua;
+  background-color: #FFFFFF;
   z-index: 999;
 }
 
 .left-column {
   width: 35%;
   height: 100%;
-  background-color: yellow;
 }
+
 .right-column {
   width: 65%;
   height: 100%;
@@ -76,14 +82,96 @@ main {
 .user-menu {
   height: 35%;
 }
+
+.user-left .my-avatar {
+  border-radius: 50%;
+  padding-left: .5rem;
+}
+
+.user-left img {
+  height: 60%;
+}
+
+.user-menu .menu {
+  color: #B1B1B1;
+  padding-right: .5rem;
+  border-right: 1px thin #B1B1B1;
+}
+
+.user-menu .menu i {
+  padding: .5rem;
+}
+
 .alert {
   height: 40%;
   background-color: #8EDAFC;
 }
+
+.alert i {
+  color: #8EDAFC;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  margin: 0 1rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+.alert a {
+  color: #547D90;
+}
+
 .finder {
   height: 25%;
   background-color: #FFFFFF;
+  color: #B1B1B1;
 }
+
+.finder-border {
+  width: 95%;
+  height: 90%;
+  border: 1px thin #B1B1B1;
+}
+
+.finder-border input{
+  width: 90%;
+  height: 60%;
+  padding-left: 1.5rem;
+  border-style: hidden;
+}
+
+.contacts {
+  height: calc(100% - 200px);
+  overflow: scroll;
+}
+
+.contacts .contact {
+  height: 80px;
+  border: 1px thin #B1B1B1;
+}
+
+.contacts .contact:hover {
+  background-color: #E9EBEB;
+  cursor: pointer;
+}
+
+.contacts .contact img {
+  height: 60%;
+  border-radius: 50%;
+  padding: 0 1rem;
+}
+
+.contact-details .contact-name {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.contact-details, .contact-right-part {
+  height: 60%;
+  color: #B1B1B1;
+  padding-right: 1rem;
+}
+
+
 .active-conversation {
   height: 70px;
   background-color: #EAEAEA;
