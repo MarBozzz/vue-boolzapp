@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!------------------- Font family Lato ------------------->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap" rel="stylesheet"> 
+
+  <!------------------- Font Awesome 6.2.0 ------------------->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==' crossorigin='anonymous'/>
+
+  <!------------------- CSS ------------------->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!------------------- Vue JS 3.2 ------------------->
+  <script src="https://unpkg.com/vue@3"></script>
+
+  <title>Boolzapp</title>
+</head>
+<body>
+
+  <main class="d-flex justify-center align-center">
+    <div id="app" class="container d-flex">
+      <div class="left-column">
+
+        <section class="user w-100">
+
+          <div class="user-menu d-flex justify-between">
+            <div class="user-left d-flex align-center">
+              <img class="my-avatar" src="img/avatar_io.jpg" alt="Avatar User">
+              <span>Sofia</span>
+            </div>
+
+            <div class="menu d-flex align-center">
+              <i class="fa-solid fa-circle-notch"></i>
+              <i class="fa-solid fa-message"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+        
+          </div>
+
+          <div class="alert d-flex align-center">
+            <i class="fa-solid fa-bell-slash d-flex justify-center align-center"></i>
+            <div class="alert-text d-flex dir-column">
+              <span>Ricevi notifiche di nuovi messaggi</span>
+              <a href="#">Attiva notifiche desktop</a>
+            </div>
+          </div>
+  
+          <div class="finder d-flex justify-center align-center">
+            <div class="finder-border d-flex justify-center align-center">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input 
+              @keyup="serchInFinder()"
+              v-model="getFromFinder"
+              type="text" placeholder="Cerca o inizia una nuova chat">
+            </div> 
+          </div>
+
+        </section>
+
+        <section class="contacts">
+          <ul>
+            <li 
+              v-for="(contact, index) in contacts"
+              @click="changeContact(index)"
+              :class="{'active': index === activeContact,  'hide': contact.visible === false}"
+              class="contact d-flex justify-between">
+              <div class="contact-left-part d-flex align-center">
+                <img 
+                :src="startPath+contact.avatar+endPath" 
+                :alt="'Avatar'+' '+contact.name">
+                <div class="contact-details d-flex dir-column">
+                  <span class="contact-name">{{contact.name}}</span>
+                  <span>Ultimo messaggio inviato</span>                
+                </div>
+              </div>
+              <div class="contact-right-part d-flex align-center">
+                <span>12:00</span>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+
+      <div class="right-column">
+        
+        <section class="active-conversation d-flex justify-between">
+          <div 
+            class="conversation-left-part d-flex align-center">
+            <img class="conversation-avatar" 
+            :src="startPath+contacts[activeContact].avatar+endPath" 
+            :alt="'Avatar'+' '+contacts[activeContact].name">
+            <div class="contact-details d-flex dir-column">
+              <span class="contact-name">{{contacts[activeContact].name}}</span>
+              <span class="last-activity">Ultimo accesso oggi alle 12:00</span>                
+            </div>
+          </div>
+          <div class="conversation-right-part menu d-flex align-center">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </section>
+
+        <section class="body-conversation d-flex dir-column">
+
+            <ul class="current-chat d-flex dir-column">
+              
+              <li 
+                v-for="(message, index) in contacts[activeContact].messages"
+                class="message-row d-flex"
+                :class="message.status === 'sent' ? 'justify-end' : 'justify-start'">
+                <div class="message-box "
+                  :class="message.status">
+                  <span>{{message.message}}</span>
+                  <span class="delivery-time">{{message.date}}</span>
+                </div>
+              </li>
+
+            </ul>
+
+            <div class="input-field d-flex justify-evenly align-center">
+              <i class="fa-regular fa-face-smile"></i>
+              <input 
+                class="write-a-message"
+                @keyup.enter="addMessage()"
+                v-model.trim="newMessage" type="text" placeholder="Scrivi un messaggio">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
