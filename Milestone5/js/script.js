@@ -1,5 +1,10 @@
 const { createApp } = Vue;
 
+const DateTime = luxon.DateTime;
+const now = DateTime.now();
+const getFullDate = now.setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+
+
 createApp ({
   data(){
     return {
@@ -185,13 +190,15 @@ createApp ({
     }
   },
   methods:{
+
     changeContact(index){
       //al click del contatto cerco l'index del ciclo e lo assegno ad activeContact
       this.activeContact = index;
     },
+
     addMessage(){
       const newOne = {
-        date: 'Just now',
+        date: getFullDate,
         message: this.newMessage,
         status: 'sent'
       }
@@ -199,16 +206,17 @@ createApp ({
       this.newMessage = '';
       setTimeout(this.replyFunction,1000)
     },
+
     replyFunction(){
       const replyOne = {
-        date: 'Just now',
+        date: getFullDate,
         message: 'FAI COME CREDI',
         status: 'received'
       }
       this.contacts[this.activeContact].messages.push(replyOne);
     },
+
     serchInFinder(){
-      //console.log(this.getFromFinder);
       this.contacts.forEach(contact => {
         if (!contact.name.toLowerCase().includes(this.getFromFinder.toLowerCase())){
           contact.visible = false;
@@ -217,15 +225,28 @@ createApp ({
         }
       })
     },
+
     toggleDropdownMenu(){
       this.dropdownShow = !this.dropdownShow
     },
+
     chooseMessage(index){
       this.activeMessage = index;
       this.toggleDropdownMenu()
     }, 
+
     deleteMessage(index){
       this.contacts[this.activeContact].messages.splice(index,1)
+    },
+
+    getLastMessageDate(contact){
+      console.log(contact.messages.length);
+      if(contact.messages.length !== 0) {
+        return contact.messages[contact.messages.length - 1].date;
+      } else {
+        return "";
+      }
     }
   }
+  
 }).mount('#app')
