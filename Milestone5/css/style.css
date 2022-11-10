@@ -233,10 +233,6 @@ img {
   overflow: scroll;
 }
 
-.message-row {
-  height: 3.5rem;
-}
-
 .message-row .sent {
   background-color: #D5F9BA;
   align-items: flex-end;
@@ -253,9 +249,13 @@ img {
   padding: 1rem;
   margin: .7rem 5rem;
   border-radius: 10px;
-  min-height: 3rem;
   min-width: 5.5rem;
+  max-width: 80%;
   position: relative;
+}
+
+.message-box span {
+  overflow-wrap: break-word;
 }
 
 .message-box .delivery-time {

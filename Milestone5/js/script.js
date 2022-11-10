@@ -189,6 +189,7 @@ createApp ({
       dropdownShow : false
     }
   },
+
   methods:{
 
     changeContact(index){
@@ -202,9 +203,11 @@ createApp ({
         message: this.newMessage,
         status: 'sent'
       }
-      this.contacts[this.activeContact].messages.push(newOne);
-      this.newMessage = '';
-      setTimeout(this.replyFunction,1000)
+      if (this.newMessage != '') {
+        this.contacts[this.activeContact].messages.push(newOne);
+        this.newMessage = '';
+        setTimeout(this.replyFunction,1000)
+      }
     },
 
     replyFunction(){
@@ -236,11 +239,11 @@ createApp ({
     }, 
 
     deleteMessage(index){
-      this.contacts[this.activeContact].messages.splice(index,1)
+      this.contacts[this.activeContact].messages.splice(index,1);
+      this.dropdownShow = false;
     },
 
     getLastMessageDate(contact){
-      console.log(contact.messages.length);
       if(contact.messages.length !== 0) {
         return contact.messages[contact.messages.length - 1].date;
       } else {
@@ -248,5 +251,5 @@ createApp ({
       }
     }
   }
-  
+
 }).mount('#app')

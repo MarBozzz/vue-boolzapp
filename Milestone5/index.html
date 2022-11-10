@@ -112,13 +112,13 @@
           </div>
         </section>
 
-        <section class="body-conversation d-flex dir-column">
+        <section class="body-conversation d-flex dir-column w-100">
 
-            <ul class="current-chat d-flex dir-column">
+            <ul class="current-chat d-flex dir-column w-100">
               
               <li 
                 v-for="(message, index) in contacts[activeContact].messages"
-                class="message-row d-flex"
+                class="message-row d-flex w-100"
                 :class="message.status === 'sent' ? 'justify-end' : 'justify-start'">
                 <div class="message-box"
                   :class="message.status">
